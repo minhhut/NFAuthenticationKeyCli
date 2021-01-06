@@ -12,7 +12,7 @@
 ## Usage
 
 ```
-NFAuthenticationKeyCli -f <file>
+dotnet NFAuthenticationKeyCli.dll -f <file>
 ```
 
 - ```<file>``` is Netscape HTTP Cookie File, generated use an browser add-on/extentions after logged in to Netflix)
