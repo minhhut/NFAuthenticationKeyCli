@@ -6,20 +6,8 @@ on:
 jobs:
   release:
     name: Release
-    strategy:
-      matrix:
-        kind: ['linux', 'windows', 'macOS']
-        include:
-          - kind: linux
-            os: ubuntu-latest
-            target: linux-x64
-          - kind: windows
-            os: windows-latest
-            target: win-x64
-          - kind: macOS
-            os: macos-latest
-            target: osx-x64
-    runs-on: ${{ matrix.os }}
+
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -37,11 +25,7 @@ jobs:
         dotnet publish --framework netcoreapp3.1 -c Release -o "$release_name"
 
         # Pack files
-        if [ "${{ matrix.target }}" == "win-x64" ]; then
-          zip -r "${release_name}.zip" "./${release_name}/*"
-        else
-          tar czvf "${release_name}.tar.gz" "$release_name"
-        fi
+        zip -r "${release_name}.zip" "$release_name"
 
         # Delete output directory
         rm -r "$release_name"
