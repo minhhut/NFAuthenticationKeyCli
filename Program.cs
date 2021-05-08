@@ -56,7 +56,7 @@ namespace NFAuthenicationKeyCli
             data_content["cookies"] = cookies;
             JObject data = new JObject();
             data["app_name"] = "NFAuthenticationKey";
-            data["app_version"] = "1.1.0.0";
+            data["app_version"] = "1.2.0.0";
             data["app_system"] = "Windows";
             data["app_author"] = "CastagnaIT";
             data["timestamp"] = (int)DateTime.UtcNow.AddDays(5).Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
